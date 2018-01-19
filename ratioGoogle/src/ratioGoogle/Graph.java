@@ -6,19 +6,22 @@ public class Graph {
 	
 	
 	//public Set<Vertex> vertices; pretty sure we don't need map but lets just keep it
-	public Set<Edge> edges;
+	//public Set<Edge> edges;
 	
+	// Graph implementation
+	// Need a set of nodes (keyset)
+	// Need a set of edges (adjacency list)
 	public Map<Vertex, Set<Edge>> vertexMap;
 	
 	public Graph() {
 		// TODO Auto-generated constructor stub
 		vertexMap = new HashMap<Vertex, Set<Edge>>();
 		//vertices = new HashSet<Vertex>();
-		edges = new HashSet<>();
+		//edges = new HashSet<>();
 	}
 	
 	public void addEdge(Edge e) {
-		edges.add(e);
+		//edges.add(e);
 	}
 	
 	public void addVertex(Vertex v) {
@@ -26,6 +29,7 @@ public class Graph {
 		//vertices.add(v);
 	}
 	
+	// at best linear search representation, unordered set
 	public boolean containsKey(Vertex v) {
 		//return vertices.contains(v);
 		Set<Vertex> s = vertexMap.keySet();
@@ -40,6 +44,17 @@ public class Graph {
 	
 	public Set<Vertex> keySet(){
 		return vertexMap.keySet();
+	}
+	
+	//returns values at given vertex
+	public Set<Edge> get(Vertex v){
+		Set<Vertex> s = vertexMap.keySet();
+		for (Vertex vert : s) {
+			if (vert.label.equals(v.label)) {
+				return vertexMap.get(vert);
+			}
+		}
+		return null;
 	}
 	
 	public Vertex getVertex(Vertex v) {

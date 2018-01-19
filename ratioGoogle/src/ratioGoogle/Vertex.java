@@ -24,5 +24,9 @@ public class Vertex {
 	public boolean equals(Vertex v) {
 		return v.label.equals(this.label);
 	}
+	
+	public String toString() {
+		return this.label;
+	}
 
 }
